@@ -1,0 +1,33 @@
+<h1>My Travel Site</h1>
+<p>This is my amazing travel site</p>
+<%= @homeland %>
+<ul>
+  <% @countries.each do |country| %>
+    <li>
+      <%=country %>
+    </li>
+    <% end %>
+</ul>
+<ul>
+  <%@country_images.each do |image| %>
+    <li>
+      <%=image_tag image, class:"img-responsive" %>
+    </li>
+    <% end %>
+</ul>
+<table class = 'table'>
+  <tr>
+    <% @united_states.each do |key,value| %>
+  <th><%= key.titleize %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <% @united_states.each do |key, value| %>
+    <% if value.kind_of?(Array) %>
+          <td><%= value.join(", ") %></td>
+      <% else %>
+         <td><%= value %></td>
+      <% end %>
+    <% end %>
+  </tr>
+</table>
